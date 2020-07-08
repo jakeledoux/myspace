@@ -325,13 +325,13 @@ Audio Player
   display: block;
   height: 50px;
   width: 300px;
-  background: #4f4f4f;
-  border: 1px solid #4f4f4f;
+  background: #3f3f3f;
+  border: 1px solid #3f3f3f;
   border-radius: 3px;
   margin-bottom: 24px;
 }
 
-.audio-player {
+.audio-player-box {
   position: relative;
   display: block;
   height: 100%;
@@ -346,26 +346,11 @@ Audio Player
 
   height: 35px;
   width: 35px;
+  padding: 0 5px;
   margin: 7.5px 4px;
-  border: 2px solid #4f4f4f;
+  border: 2px solid #3f3f3f;
   border-radius: 100%;
   background: linear-gradient(ghostwhite, silver);
-
-  font-size: 20px;
-  padding-left: 10px;
-  padding-bottom: 4px;
-  color: #4f4f4f;
-}
-
-#music-info {
-  position: absolute;
-  right: 0;
-  display: inline-block;
-  height: 30px;
-  width: 245px;
-  background: #4f4f4f;
-  border-radius: 5px;
-  margin: 4px 0px;
 }
 
 #play-btn:hover {
@@ -373,6 +358,67 @@ Audio Player
   cursor: pointer;
 }
 
+#play-btn img {
+  width: 30px;
+  fill: #3f3f3f;
+  vertical-align: middle;
+  position: absolute;
+  top: 0px;
+}
+
+#play-btn #play-icon {
+  left: 5px;
+}
+
+#play-btn #pause-icon {
+  left: 1px;
+}
+
+#audio-info {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  height: 24px;
+  width: 251px;
+  background: #363636;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+#audio-info p {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  height: 12px;
+  padding-left: 4px;
+  margin: auto;
+
+  color: ghostwhite;
+}
+
+#audio-prog-bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 4px;
+
+  display: inline-block;
+  height: 13px;
+  width: 251px;
+
+  background: #363636;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#audio-prog-fill {
+  display: inline-block;
+  height: 13px;
+  width: 0px;
+
+  background: radial-gradient(aqua, lightskyblue);
+}
 /*
 ========================================
 Sidebar Table Class

@@ -121,16 +121,22 @@
           <p>http://jakeledoux.com/</p>
         </section>
 
-        <!-- Music player -->
+        <!-- Music player (Shitty recreation of one I saw in google images) -->
         <section class="audio-section">
-          <div class="audio-player">
-            <audio>
-              <source src="in_the_face_of_evil.mp3" type="audio/mpeg">
+          <div class="audio-player-box">
+            <audio id="audio-player" onended="resetPlayer();" ontimeupdate="updateProgressBar();">
+              <source src="power_core.mp3" type="audio/mpeg">
             </audio>
 
-            <button id="play-btn">▶</button>
-            <div id="music-info">
-
+            <button id="play-btn" onclick="togglePlay();">
+              <img id="play-icon" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gZmlsbD0iIzAwMDAwMCIgcG9pbnRzPSIxNS43NDUsMTUuOTc4IDc0Ljg3Niw1MC4xMTggMTUuNzQ1LDg0LjI1NSAiPjwvcG9seWdvbj48L3N2Zz4=" alt="">
+              <img id="pause-icon" style="display: none;" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHJlY3QgeD0iMjguODQ4IiB5PSIyMS43MTQiIGZpbGw9IiMwMDAwMDAiIHdpZHRoPSIxNS40NzgiIGhlaWdodD0iNTYuNTcyIj48L3JlY3Q+PHJlY3QgeD0iNTUuNjcyIiB5PSIyMS43MTQiIGZpbGw9IiMwMDAwMDAiIHdpZHRoPSIxNS40OCIgaGVpZ2h0PSI1Ni41NzIiPjwvcmVjdD48L3N2Zz4=" alt="">
+            </button>
+            <div id="audio-info">
+              <p><b>Power Core</b> by Power Glove</p>
+            </div>
+            <div id="audio-prog-bar">
+              <div id="audio-prog-fill"></div>
             </div>
           </div>
         </section>
@@ -553,6 +559,37 @@
     </footer>
   </div>
 
-</body>
+  <!-- Audio player controls -->
+  <script>
+    var audioPlayer = document.getElementById("audio-player");
+    var progressBar = document.getElementById("audio-prog-fill");
+    var playIcon = document.getElementById("play-icon");
+    var pauseIcon = document.getElementById("pause-icon");
 
+    function resetPlayer() {
+      audioPlayer.currentTime = 0;
+
+      pauseIcon.style.display = "none";
+      playIcon.style.display = "inline";
+    }
+
+    function togglePlay() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playIcon.style.display = "none";
+        pauseIcon.style.display = "inline";
+      } else {
+        audioPlayer.pause();
+        pauseIcon.style.display = "none";
+        playIcon.style.display = "inline";
+      }
+    }
+
+    function updateProgressBar(progress=null) {
+      if (progress == null)
+        var progress = audioPlayer.currentTime / audioPlayer.duration;
+      progressBar.style.width = `${251 * progress}px`;
+    }
+  </script>
+</body>
 </html>
