@@ -214,7 +214,7 @@ Profile Picture Container
 */
 .profile-picture-container {
   display: grid;
-  grid-template-columns: 170px 115px;
+  grid-template-columns: 135px 115px;
   grid-template-rows: 176px;
   grid-column-gap: 15px;
   margin-bottom: 12px;
@@ -285,6 +285,10 @@ Contact Box
   margin-left: 10px;
 }
 
+.contact-images img {
+  display: block;
+}
+
 /*
 ========================================
 MySpace URL
@@ -310,6 +314,63 @@ MySpace URL
 .myspace-url-box p {
   padding-left: 6px;
   ;
+}
+
+/* 
+========================================
+Audio Player
+========================================
+*/
+.audio-section {
+  display: block;
+  height: 50px;
+  width: 300px;
+  background: #4f4f4f;
+  border: 1px solid #4f4f4f;
+  border-radius: 3px;
+  margin-bottom: 24px;
+}
+
+.audio-player {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  background: linear-gradient(ghostwhite, silver);
+}
+
+#play-btn {
+  position: absolute;
+  top: 0px;
+
+  height: 35px;
+  width: 35px;
+  margin: 7.5px 4px;
+  border: 2px solid #4f4f4f;
+  border-radius: 100%;
+  background: linear-gradient(ghostwhite, silver);
+
+  font-size: 20px;
+  padding-left: 10px;
+  padding-bottom: 4px;
+  color: #4f4f4f;
+}
+
+#music-info {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  height: 30px;
+  width: 245px;
+  background: #4f4f4f;
+  border-radius: 5px;
+  margin: 4px 0px;
+}
+
+#play-btn:hover {
+  background: linear-gradient(silver, ghostwhite);
+  cursor: pointer;
 }
 
 /*
